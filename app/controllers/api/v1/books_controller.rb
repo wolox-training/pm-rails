@@ -1,9 +1,19 @@
 class Api::V1::BooksController < Api::V1::BaseController
+  before_action :load_book, only: :show
+
   def index
-    return render status: 200, json: {status: 'Ok', data: 'This is the INDEX method'}
+    books = Book.all
+
+    return render json: books, each_serializer: BookSerializer
   end
 
   def show
-    return render status: 200, json: {status: 'Ok', data: 'This is the SHOW method'}
+    return head 404 unless @book
+    return render json: @book, serializer: BookSerializer
+  end
+
+  private
+  def load_book
+    @book = Book.find_by_id params[:id]
   end
 end
