@@ -1,8 +1,12 @@
 module Api
-  module V1
-    class ApiController < ApplicationController
-      before_action :authenticate_user!
-      respond_to :json
+  class ApiController < ApplicationController
+    respond_to :json
+    rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
+    private
+
+    def not_found
+      render json: { error: "Record not found with id #{params[:id]}" }, status: :not_found
     end
   end
 end
