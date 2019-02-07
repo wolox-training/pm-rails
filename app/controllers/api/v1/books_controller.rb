@@ -1,19 +1,16 @@
-class Api::V1::BooksController < Api::V1::BaseController
-  before_action :load_book, only: :show
+module Api
+  module V1
+    class BooksController < Api::ApiController
+      before_action :authenticate_user!
 
-  def index
-    books = Book.all
+      def index
+        render json: Book.all
+      end
 
-    return render json: books, each_serializer: BookSerializer
-  end
-
-  def show
-    return head 404 unless @book
-    return render json: @book, serializer: BookSerializer
-  end
-
-  private
-  def load_book
-    @book = Book.find_by_id params[:id]
+      def show
+        book = Book.find params[:id]
+        render json: book
+      end
+    end
   end
 end
