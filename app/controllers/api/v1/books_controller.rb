@@ -1,6 +1,6 @@
 module Api
   module V1
-    class BooksController < Api::ApiController
+    class BooksController < ApiController
       before_action :authenticate_user!
 
       def index
