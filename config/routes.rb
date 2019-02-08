@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth'
+  mount_devise_token_auth_for 'User', at: 'api/v1/auth'
 
-  namespace :api do
-    namespace :v1 do
-      resources :books, only: [:index, :show]
+  api_version(module: 'api/v1', path: { value: 'api/v1' }) do
+    resources :books, only: [:index, :show]
+    resources :users, only: :rents do
+      resources :rents, only: [:index, :create]
     end
   end
-
 end
