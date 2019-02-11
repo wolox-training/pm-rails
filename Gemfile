@@ -44,6 +44,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -72,3 +73,4 @@ gem 'devise'
 gem 'devise_token_auth'
 gem 'active_model_serializers'
 gem 'versionist'
+gem 'sidekiq'

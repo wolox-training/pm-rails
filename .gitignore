@@ -28,4 +28,4 @@
 
 /.idea
 /test/*
-
+.env

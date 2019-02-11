@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'pmarclay-a95220@inbox.mailtrap.io'
   layout 'mailer'
 end
