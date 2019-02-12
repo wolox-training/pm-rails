@@ -1,5 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :first_name, :last_name, :email, :image_url, :rents_counter, :comments_counter, :unerad_notifications_count
+  attributes :id, :first_name, :last_name, :email, :image_url,
+             :rents_counter, :comments_counter, :unerad_notifications_count
 end
 
 def image_url

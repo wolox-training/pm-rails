@@ -1,10 +1,10 @@
 module Api
   module V1
     class RentsController < Api::V1::BaseController
-      before_action :set_user, only: [:index, :create]
+      before_action :set_user, only: %i[index create]
 
       def index
-        return render json: @user.rents.all
+        render json: @user.rents.all
       end
 
       def create
