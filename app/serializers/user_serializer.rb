@@ -7,7 +7,7 @@ def image_url
 end
 
 def rents_counter
-  0
+  object.rents.count
 end
 
 def comments_counter
