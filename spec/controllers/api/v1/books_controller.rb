@@ -30,9 +30,7 @@ describe Api::V1::BooksController, type: :controller do
       before { get :show, params: { id: book.id } }
 
       it 'responses with the book json' do
-        expect(response.body).to eq BookSerializer.new(
-            book, root: false
-        ).to_json
+        expect(response.body).to eq BookSerializer.new(book).to_json
       end
 
       it 'responds with 200 status' do
