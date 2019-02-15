@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :book_suggestion do
-    user { create(:user) }
+    user { build(:user) }
     synopsis { Faker::Book.title }
     price { Faker::Number.decimal(2, 3) }
     author { Faker::Book.author }
