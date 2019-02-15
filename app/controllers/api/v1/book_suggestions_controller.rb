@@ -10,6 +10,7 @@ module Api
 
       def book_suggestion_params
         params.permit(:synopsis, :price, :author, :title, :link, :publisher, :year)
+            .merge(user: current_user)
       end
     end
   end
