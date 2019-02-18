@@ -10,7 +10,10 @@ class OpenLibrary
   def find_by_isbn(isbn)
     @options[:query][:bibkeys] = "ISBN:#{isbn}"
     response = self.class.get('/books', @options)
+    json = JSON.parse(response.body)
 
-    JSON.parse(response.body)
+    raise OpenLibraryException.new if json.blank?
+
+    json
   end
 end

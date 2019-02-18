@@ -1,0 +1,3 @@
+class OpenLibraryException < StandardError
+
+end
