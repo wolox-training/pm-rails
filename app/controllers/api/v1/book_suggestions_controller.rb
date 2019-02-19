@@ -9,7 +9,8 @@ module Api
       private
 
       def book_suggestion_params
-        params.permit(:synopsis, :price, :author, :title, :link, :publisher, :year)
+        params.require(:book_suggestion)
+            .permit(:synopsis, :price, :author, :title, :link, :publisher, :year)
             .merge(user: current_user)
       end
     end
