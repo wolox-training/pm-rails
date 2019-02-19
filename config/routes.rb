@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :rents, only: [:index, :create]
     end
     resources :book_suggestions, only: :create
+    get 'open_library/books/:id', to: 'open_library#book'
   end
 
   mount Sidekiq::Web, at: "/sidekiq"
