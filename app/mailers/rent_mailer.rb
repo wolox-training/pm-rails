@@ -6,4 +6,10 @@ class RentMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'New Rent!')
   end
+
+  def rent_end_email
+    @rent = params[:rent]
+    @user = @rent.user
+    @book = @rent.book
+  end
 end
