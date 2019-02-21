@@ -18,9 +18,9 @@ class Rent < ApplicationRecord
   def schedule_end_email
     Sidekiq.set_schedule('rent_end_email_worker',
                          {
-                             at: self.end_date.to_s + ' 09:00:00',
+                             at: (end_date + 9.hours).in_time_zone("Buenos Aires"),
                              class: 'RentEndEmailWorker',
-                             args: {rent_id: self.id}
+                             args: {rent_id: id}
                          })
   end
 end

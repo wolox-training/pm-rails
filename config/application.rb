@@ -17,6 +17,5 @@ module WbooksApi
     # the framework and any gems in your application.
 
     config.autoload_paths << Rails.root.join('app', 'poros')
-    config.time_zone = 'Buenos Aires'
   end
 end
