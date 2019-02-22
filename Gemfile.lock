@@ -110,6 +110,8 @@ GEM
       dotenv (= 2.6.0)
       railties (>= 3.2, < 6.0)
     erubi (1.8.0)
+    et-orbi (1.1.7)
+      tzinfo
     execjs (2.7.0)
     factory_bot (5.0.0)
       activesupport (>= 4.2.0)
@@ -117,6 +119,9 @@ GEM
       factory_bot (~> 5.0.0)
       railties (>= 4.2.0)
     ffi (1.10.0)
+    fugit (1.1.8)
+      et-orbi (~> 1.1, >= 1.1.7)
+      raabro (~> 1.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashdiff (0.3.8)
@@ -164,6 +169,7 @@ GEM
     powerpack (0.1.2)
     public_suffix (3.0.3)
     puma (3.12.0)
+    raabro (1.1.6)
     rack (2.0.6)
     rack-protection (2.0.5)
       rack
@@ -232,6 +238,8 @@ GEM
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     safe_yaml (1.0.4)
+    rufus-scheduler (3.5.2)
+      fugit (~> 1.1, >= 1.1.5)
     sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -253,6 +261,11 @@ GEM
       rack (>= 1.5.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
+    sidekiq-scheduler (3.0.0)
+      redis (>= 3, < 5)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 3)
+      tilt (>= 1.4.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -326,6 +339,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   sidekiq
+  sidekiq-scheduler
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
