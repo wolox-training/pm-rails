@@ -23,8 +23,7 @@ describe OpenLibrary do
   end
 
   it 'gets a book not found error from open library' do
-    response = OpenLibrary.new.find_by_isbn('0385472579abc')
-  rescue OpenLibraryException
+      expect { OpenLibrary.new.find_by_isbn('0385472579abc') }.to raise_error(OpenLibraryException)
   end
 
   def load_fixture(file_name)
